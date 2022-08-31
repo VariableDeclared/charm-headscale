@@ -1,0 +1,42 @@
+# Copyright 2022 pjds
+# See LICENSE file for licensing details.
+#
+# TEMPLATE-TODO: change this example to suit your needs.
+# If you don't need a config, you can remove the file entirely.
+# It ties in to the example _on_config_changed handler in src/charm.py
+#
+# Learn more about config at: https://juju.is/docs/sdk/config
+
+options:
+  letsencrypt-acme-email:
+    default: ""
+    description: Email address to register with lets encrypt.
+    type: string
+  letsencrypt-acme-hostname:
+    default: ""
+    description: 
+    type: string
+  https-bind-address:
+    default: "0.0.0.0"
+    description: HTTPs bind port
+    type: string
+  https-bind-port:
+    default: "443"
+    description: HTTPs bind address.
+    type: string
+  grpc-bind-port:
+    default: "50443"
+    description: GRPC bind port.
+    type: string
+  grpc-bind-address:
+    default: "0.0.0.0"
+    description: GRPC bind address.
+    type: string
+  stun-bind-port:
+    default: "3478"
+    description: stun bind port.
+    type: string
+  stun-bind-address:
+    default: "0.0.0.0"
+    description: stun bind address.
+    type: string
