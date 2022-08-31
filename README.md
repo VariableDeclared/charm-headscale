@@ -1,21 +1,24 @@
-# charm
+# Headscale charm
+
+Checkout the main project at https://github.com/juanfont/headscale
 
 ## Description
 
-TODO: Describe your charm in a few paragraphs of Markdown
+This charm deploys headscale with minimum configuration.
 
 ## Usage
 
-TODO: Provide high-level usage, such as required config or relations
+```
+charmcraft pack
+
+juju add-model headscale 
+juju deploy ./headscale-charm-name.charm
+```
 
 
 ## Relations
 
-TODO: Provide any relations which are provided or required by your charm
-
-## OCI Images
-
-TODO: Include a link to the default image your charm uses
+No relations applicable.
 
 ## Contributing
 
