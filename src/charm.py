@@ -37,40 +37,6 @@ class HeadscaleCharm(CharmBase):
         self.framework.observe(self.on.fortune_action, self._on_fortune_action)
         self.framework.observe(self.on.install, self._on_install)
 
-    # def _on_httpbin_pebble_ready(self, event):
-    #     """Define and start a workload using the Pebble API.
-
-    #     TEMPLATE-TODO: change this example to suit your needs.
-    #     You'll need to specify the right entrypoint and environment
-    #     configuration for your specific workload. Tip: you can see the
-    #     standard entrypoint of an existing container using docker inspect
-
-    #     Learn more about Pebble layers at https://github.com/canonical/pebble
-    #     """
-    #     # Get a reference the container attribute on the PebbleReadyEvent
-    #     container = event.workload
-    #     # Define an initial Pebble layer configuration
-    #     pebble_layer = {
-    #         "summary": "httpbin layer",
-    #         "description": "pebble config layer for httpbin",
-    #         "services": {
-    #             "httpbin": {
-    #                 "override": "replace",
-    #                 "summary": "httpbin",
-    #                 "command": "gunicorn -b 0.0.0.0:80 httpbin:app -k gevent",
-    #                 "startup": "enabled",
-    #                 "environment": {"thing": self.model.config["thing"]},
-    #             }
-    #         },
-    #     }
-    #     # Add initial Pebble config layer using the Pebble API
-    #     container.add_layer("httpbin", pebble_layer, combine=True)
-    #     # Autostart any services that were defined with startup: enabled
-    #     container.autostart()
-    #     # Learn more about statuses in the SDK docs:
-    #     # https://juju.is/docs/sdk/constructs#heading--statuses
-    #     self.unit.status = ActiveStatus()
-
     def cli(self, command):
         components = command.split(" ")
         try:
@@ -99,7 +65,7 @@ class HeadscaleCharm(CharmBase):
             self.cli("touch /etc/headscale/config.yaml")
 
         etc_config_dict = {
-            "server_url": f"https://{self.config['https-bind-address']}:{self.config['https-bind-port']}",
+            "server_url": f"https://{self.config['https-server-url']}:{self.config['https-bind-port']}",
             "listen_addr": f"{self.config['https-bind-address']}:{self.config['https-bind-port']}",
             "metrics_listen_addr": "127.0.0.1:9090",
             "grpc_listen_addr": f"{self.config['grpc-bind-address']}:{self.config['grpc-bind-port']}",

@@ -40,3 +40,7 @@ options:
     default: "0.0.0.0"
     description: stun bind address.
     type: string
+  https-server-url:
+    default: "0.0.0.0"
+    description: https server URL.
+    type: string
